@@ -3,7 +3,7 @@
 #include "Weapon.hpp"
 #include "HumanA.hpp"
 
-HumanA::HumanA( std::string const name, Weapon weapontype ) : _name(name), _weapon(weapontype)
+HumanA::HumanA( std::string const name, Weapon& weapontype ) : _name(name), _weapon(weapontype)
 {
 	std::cout	<< COLOUR_NEW
 				<< "HumanA constructor called: " << this->_name

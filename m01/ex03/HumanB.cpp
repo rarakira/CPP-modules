@@ -33,7 +33,7 @@ void HumanB::attack( void )
 				<< std::endl;
 }
 
-void HumanB::setWeapon( Weapon const type )
+void HumanB::setWeapon( Weapon& type )
 {
-	this->_weapon->setType(type.getType());
+	this->_weapon = &type;
 }

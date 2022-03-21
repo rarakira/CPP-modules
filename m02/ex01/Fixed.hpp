@@ -9,14 +9,23 @@
 class Fixed {
 	private:
 		int					_num;
-		static const int	_fractBits;
+		static const int	_fractBits = 8;
+
 	public:
 		Fixed ( void );
 		Fixed ( int const n );
+		Fixed ( float const n );
 		Fixed ( Fixed const & inst );
 		~Fixed ( void );
+
 		int getRawBits( void ) const;
 		void setRawBits( int const raw );
+
+		float toFloat( void ) const;
+		int toInt( void ) const;
+		Fixed & operator=( Fixed const & rhs );
 };
+
+std::ostream & operator<<( std::ostream & o, Fixed const & rhs );
 
 #endif

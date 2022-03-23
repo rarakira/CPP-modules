@@ -1,5 +1,5 @@
-#ifndef INTEGER_H
-# define INTEGER_H
+#ifndef FIXED_H
+# define FIXED_H
 
 # define COLOUR_MAIN	"\033[0;38;5;220m"
 # define COLOUR_NEW		"\033[0;38;5;42m"

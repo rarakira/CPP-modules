@@ -63,7 +63,7 @@ std::string const & ClapTrap::getName( void ) const
 void ClapTrap::cantAttack( const std::string& target )
 {
 	std::cout	<< COLOUR_ATTACK
-				<< "⚔️\tClapTrap ["
+				<< "ClapTrap ["
 				<< this->_name
 				<< "] does not have any hit points left so he can't attack ["
 				<< target
@@ -78,7 +78,7 @@ void ClapTrap::attack( const std::string& target )
 		return this->cantAttack( target );
 	this->_hitPts--;
 	std::cout	<< COLOUR_ATTACK
-				<< "⚔️\tClapTrap ["
+				<< "ClapTrap ["
 				<< this->_name
 				<< "] attacks ["
 				<< target
@@ -98,7 +98,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 	if (this->getEnergyPts())
 		this->_energyPts--;
 	std::cout	<< COLOUR_DAMAGE
-				<< "🩸\tClapTrap ["
+				<< "ClapTrap ["
 				<< this->_name
 				<< "] is being damaged with "
 				<< amount
@@ -112,7 +112,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 void ClapTrap::cantRepair( void )
 {
 	std::cout	<< COLOUR_REPAIR
-				<< "🩺\tClapTrap ["
+				<< "ClapTrap ["
 				<< this->_name
 				<< "] can not be repaired as he has no energy points left!"
 				<< COLOUR_FIN
@@ -126,7 +126,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 	this->_energyPts--;
 	this->_hitPts += amount;
 	std::cout	<< COLOUR_REPAIR
-				<< "🩺\tClapTrap ["
+				<< "ClapTrap ["
 				<< this->_name
 				<< "] is being repaired with "
 				<< amount

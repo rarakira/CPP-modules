@@ -20,26 +20,35 @@ int main( void )
 		FragTrap	bob( "Bob" );
 		DiamondTrap	xman( "Xman" );
 
+		print_status("--- ATTACK 1 ");
 		xman.whoAmI();
 		bob.attack(xman.getName());
 		xman.takeDamage(bob.getDmg());
+		xman.whoAmI();
+		print_status("--- REPAIR ");
 		xman.beRepaired(5);
-		xman.attack(bob.getName());
-		bob.takeDamage(xman.getDmg());
-		bob.beRepaired(5);
 		xman.whoAmI();
-		bob.attack(xman.getName());
-		xman.takeDamage(bob.getDmg());
-		xman.whoAmI();
-		bob.attack(xman.getName());
-		xman.takeDamage(bob.getDmg());
-		xman.whoAmI();
-		bob.attack(xman.getName());
-		xman.takeDamage(bob.getDmg());
-		xman.whoAmI();
+		print_status("--- ATTACK 2 ");
 		xman.attack(bob.getName());
 		bob.takeDamage(xman.getDmg());
 		xman.whoAmI();
+		print_status("--- ATTACK 3 ");
+		bob.attack(xman.getName());
+		xman.takeDamage(bob.getDmg());
+		print_status("--- ATTACK 4 ");
+		xman.whoAmI();
+		bob.attack(xman.getName());
+		xman.takeDamage(bob.getDmg());
+		print_status("--- ATTACK 5 ");
+		xman.whoAmI();
+		bob.attack(xman.getName());
+		xman.takeDamage(bob.getDmg());
+		print_status("--- ATTACK 6 ");
+		xman.whoAmI();
+		xman.attack(bob.getName());
+		bob.takeDamage(xman.getDmg());
+		xman.whoAmI();
+		print_status("--- FIGHT ENDED ");
 	}
 	return 0;
 }

@@ -62,7 +62,7 @@ void FragTrap::attack( const std::string& target )
 		return this->cantAttack( target );
 	this->_hitPts--;
 	std::cout	<< COLOUR_ATTACK
-				<< "⚔️\tFragTrap ["
+				<< "FragTrap ["
 				<< this->_name
 				<< "] attacks ["
 				<< target

@@ -4,9 +4,13 @@
 # include <iostream>
 # include "ClapTrap.hpp"
 
-class ScavTrap : virtual ClapTrap {
+class ScavTrap : virtual public ClapTrap {
 	private:
 		bool	_gateKeeper;
+	protected:
+		static int const	_hitPtsPreset = 100;
+		static int const	_energyPtsPreset = 50;
+		static int const	_attackDmgPreset = 20;
 	public:
 		ScavTrap ( void );
 		ScavTrap ( std::string const name );

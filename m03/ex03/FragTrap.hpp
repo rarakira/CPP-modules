@@ -4,9 +4,13 @@
 # include <iostream>
 # include "ClapTrap.hpp"
 
-class FragTrap : virtual ClapTrap {
+class FragTrap : virtual public ClapTrap {
 	private:
-		bool	_highFives;
+		bool				_highFives;
+	protected:
+		static int const	_hitPtsPreset = 100;
+		static int const	_energyPtsPreset = 100;
+		static int const	_attackDmgPreset = 30;
 	public:
 		FragTrap ( void );
 		FragTrap ( std::string const name );

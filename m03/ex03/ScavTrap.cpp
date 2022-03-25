@@ -14,9 +14,9 @@ ScavTrap::ScavTrap ( void ) : _gateKeeper(false)
 
 ScavTrap::ScavTrap ( std::string const name ) : ClapTrap(name), _gateKeeper(false)
 {
-	this->_hitPts = 100;
-	this->_energyPts = 50;
-	this->_attackDmg = 20;
+	this->_hitPts = this->_hitPtsPreset;
+	this->_energyPts = this->_energyPtsPreset;
+	this->_attackDmg = this->_attackDmgPreset;
 	std::cout	<< COLOUR_NEW
 				<< "ScavTrap constructor called for " << this->_name
 				<< COLOUR_FIN
@@ -64,7 +64,7 @@ void ScavTrap::attack( const std::string& target )
 		return this->cantAttack( target );
 	this->_hitPts--;
 	std::cout	<< COLOUR_ATTACK
-				<< "ScavTrap ["
+				<< "⚔️\tScavTrap ["
 				<< this->_name
 				<< "] attacks ["
 				<< target

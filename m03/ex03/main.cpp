@@ -4,6 +4,7 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 void print_status( std::string const msg)
 {
@@ -15,36 +16,30 @@ void print_status( std::string const msg)
 int main( void )
 {
 	{
-		print_status("--- TEST 1 ");
-		ClapTrap	one( "Bob" );
-		ScavTrap	two( "Jack" );
-		FragTrap	three( "George" );
+		print_status("--- FIGHT ");
+		FragTrap	bob( "Bob" );
+		DiamondTrap	xman( "Xman" );
 
-		one.attack("Jack");
-		two.takeDamage(one.getDmg());
-		two.beRepaired(5);
-		two.attack("Bob");
-		one.takeDamage(two.getDmg());
-		one.beRepaired(5);
-		two.takeDamage(one.getDmg());
-		two.attack("George");
-		three.takeDamage(two.getDmg());
-	}
-	{
-		print_status("--- TEST 2 ");
-		ScavTrap	one( "Bob" );
-		FragTrap	two( "George" );
-
-		for (size_t i = 0; i < 15; i++)
-		{
-			std::cout << i << "." << std::endl;
-			one.attack("George");
-			two.takeDamage(one.getDmg());
-			two.beRepaired(10);
-		}
-		two.attack("Bob");
-		two.highFivesGuys();
-		one.guardGate();
+		xman.whoAmI();
+		bob.attack(xman.getName());
+		xman.takeDamage(bob.getDmg());
+		xman.beRepaired(5);
+		xman.attack(bob.getName());
+		bob.takeDamage(xman.getDmg());
+		bob.beRepaired(5);
+		xman.whoAmI();
+		bob.attack(xman.getName());
+		xman.takeDamage(bob.getDmg());
+		xman.whoAmI();
+		bob.attack(xman.getName());
+		xman.takeDamage(bob.getDmg());
+		xman.whoAmI();
+		bob.attack(xman.getName());
+		xman.takeDamage(bob.getDmg());
+		xman.whoAmI();
+		xman.attack(bob.getName());
+		bob.takeDamage(xman.getDmg());
+		xman.whoAmI();
 	}
 	return 0;
 }

@@ -13,11 +13,12 @@ DiamondTrap::DiamondTrap ( void )
 }
 
 
-DiamondTrap::DiamondTrap ( std::string const name ) : _name(name), ClapTrap::_name(name + "_clap_name")
+DiamondTrap::DiamondTrap ( std::string const name ) : _name(name)
 {
-	// this->_hitPts = 100;
-	// this->_energyPts = 50;
-	// this->_attackDmg = 20;
+	ClapTrap::_name = name + "_clap_name";
+	this->_hitPts = FragTrap::_hitPtsPreset;
+	this->_energyPts = ScavTrap::_energyPtsPreset;
+	this->_attackDmg = FragTrap::_attackDmgPreset;
 	std::cout	<< COLOUR_NEW
 				<< "DiamondTrap constructor called for " << this->_name
 				<< COLOUR_FIN
@@ -47,19 +48,21 @@ DiamondTrap::~DiamondTrap ( void )
 	return;
 }
 
-void DiamondTrap::attack( const std::string& target )
+void DiamondTrap::whoAmI( void )
 {
-	if (this->getHitPts() == 0)
-		return this->cantAttack( target );
-	this->_hitPts--;
-	std::cout	<< COLOUR_ATTACK
-				<< "DiamondTrap ["
-				<< this->_name
-				<< "] attacks ["
-				<< target
-				<< "], causing "
-				<< this->_attackDmg
-				<< " points of damage!"
+	std::cout	<< COLOUR_GATE
+				<< "I am the [" << this->_name
+				<< "] aka "
+				<< this->ClapTrap::_name
+				<< std::endl;
+	std::cout	<< "Hit points: " << this->_hitPts << std::endl
+				<< "Energy points: " << this->_energyPts << std::endl
+				<< "Attack damage: " << this->_attackDmg
 				<< COLOUR_FIN
 				<< std::endl;
+}
+
+void DiamondTrap::attack(const std::string& target)
+{
+	ScavTrap::attack(target);
 }

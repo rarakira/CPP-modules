@@ -1,9 +1,11 @@
-NAME		=	zombies
+NAME		=	makeSounds
 
 SRCS		=	main.cpp		\
-				Zombie.cpp      \
-				newZombie.cpp	\
-				zombieHorde.cpp
+				Animal.cpp		\
+				Cat.cpp			\
+				Dog.cpp			\
+				WrongAnimal.cpp	\
+				WrongCat.cpp
 
 OBJS		=	$(SRCS:.cpp=.o)
 
@@ -11,7 +13,7 @@ D_FILES		=	$(SRCS:.cpp=.d)
 
 CPP			=	c++
 
-CPP_FLAGS	=	-Wall -Wextra -Werror -std=c++98
+CPP_FLAGS	=	-Wall -Wextra -Werror -Wshadow -std=c++98
 
 INCLUDES	=	-I.
 

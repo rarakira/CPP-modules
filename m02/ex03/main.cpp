@@ -82,5 +82,28 @@ int main( void )
 				<< COLOUR_FIN
 				<< std::endl;
 	}
+	{
+		print_status("--- TEST 4 :: VERTICAL SIDE ");
+		Point			a(Fixed(0.1f), Fixed(5.1f));
+		Point 			b(Fixed(0.1f), Fixed(-5.1f));
+		Point			c(Fixed(5.1f), Fixed(5.1f));
+		Point			d(Fixed(0.1f), Fixed(0.1f));
+
+		std::cout	<< "A is " << a << std::endl
+					<< "B is " << b << std::endl
+					<< "C is " << c << std::endl
+					<< "D is " << d << std::endl;
+
+		if (bsp(a, b, c, d))
+			std::cout	<< COLOUR_MAIN
+				<< "D is in the area of ABC"
+				<< COLOUR_FIN
+				<< std::endl;
+		else
+			std::cout	<< COLOUR_MAIN
+				<< "D is outside the area of ABC"
+				<< COLOUR_FIN
+				<< std::endl;
+	}
 	return 0;
 }

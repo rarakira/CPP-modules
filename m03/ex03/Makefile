@@ -12,7 +12,7 @@ D_FILES		=	$(SRCS:.cpp=.d)
 
 CPP			=	c++
 
-CPP_FLAGS	=	-Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++98
+CPP_FLAGS	=	-Wall -Wextra -Werror -Wshadow -std=c++98
 
 INCLUDES	=	-I.
 

@@ -13,7 +13,7 @@ int main( void )
 			book.add_contact();
 		else if (command.compare("SEARCH") == 0)
 			book.search_contact();
-		else if (command.compare("EXIT") == 0)
+		else if (std::cin.eof() || command.compare("EXIT") == 0)
 			break;
 		else
 			std::cout << "Availible commands are: ADD, SEARCH and EXIT" << std::endl;

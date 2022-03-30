@@ -18,16 +18,12 @@ class AAnimal
 		std::string		_type;
 		Brain*			_brain;
 	public:
-		AAnimal( void );
-		AAnimal( std::string const & type );
-		AAnimal( AAnimal const & src );
-		AAnimal & operator=( AAnimal const & rhs );
+		virtual AAnimal & operator=( AAnimal const & rhs ) = 0;
 		virtual ~AAnimal( void );
 
 		std::string const & getType( void ) const;
-		Brain * getBrain( void ) const;
-		Brain * copyBrain( Brain & src ) const;
-		virtual void makeSound( void ) const;
+		virtual Brain * getBrain( void ) const = 0;
+		virtual void makeSound( void ) const = 0;
 };
 
 #endif

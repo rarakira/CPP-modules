@@ -1,4 +1,4 @@
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 
 Brain::Brain( void )

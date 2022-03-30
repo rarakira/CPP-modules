@@ -1,7 +1,8 @@
 #include "Dog.hpp"
 
-Dog::Dog( void ) : Animal("Dog")
+Dog::Dog( void )
 {
+	this->_type = "Dog";
 	this->_brain = new Brain();
 	std::cout	<< COLOUR_NEW
 				<< "Dog DEFAULT constructor called"
@@ -28,6 +29,13 @@ Dog & Dog::operator=( Dog const & rhs )
 	return *this;
 }
 
+AAnimal & Dog::operator=( AAnimal const & rhs )
+{
+	this->_type = rhs.getType();
+	this->_brain = new Brain(*rhs.getBrain());
+	return *this;
+}
+
 Dog::~Dog( void )
 {
 	delete this->_brain;
@@ -45,4 +53,9 @@ void Dog::makeSound( void ) const
 				<< COLOUR_FIN
 				<< std::endl;
 	return;
+}
+
+Brain* Dog::getBrain( void ) const
+{
+	return this->_brain;
 }

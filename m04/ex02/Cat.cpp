@@ -1,7 +1,8 @@
 #include "Cat.hpp"
 
-Cat::Cat( void ) : Animal("Cat")
+Cat::Cat( void )
 {
+	this->_type = "Cat";
 	this->_brain = new Brain();
 	std::cout	<< COLOUR_NEW
 				<< "Cat DEFAULT constructor called"
@@ -28,6 +29,13 @@ Cat & Cat::operator=( Cat const & rhs )
 	return *this;
 }
 
+AAnimal & Cat::operator=( AAnimal const & rhs )
+{
+	this->_type = rhs.getType();
+	this->_brain = new Brain(*rhs.getBrain());
+	return *this;
+}
+
 Cat::~Cat( void )
 {
 	delete this->_brain;
@@ -45,4 +53,9 @@ void Cat::makeSound( void ) const
 				<< COLOUR_FIN
 				<< std::endl;
 	return;
+}
+
+Brain* Cat::getBrain( void ) const
+{
+	return this->_brain;
 }

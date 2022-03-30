@@ -1,7 +1,7 @@
 #include <iostream>
 #include <iomanip>
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
 #include "WrongAnimal.hpp"
@@ -25,7 +25,7 @@ int main( void )
 		cat1->getBrain()->setThought(0, "I love Tuna!");
 		std::cout << "Cat 1 thinks: \"" << cat1->getBrain()->getThought(0) << "\"" << std::endl;
 		
-		const Animal*		cat2 = new Cat(*cat1);
+		const AAnimal*		cat2 = new Cat(*cat1);
 		std::cout << "Cat 2 says: ";
 		cat2->makeSound();
 		std::cout << "Cat 2 thinks: \"" << cat2->getBrain()->getThought(0) << "\"" << std::endl;
@@ -39,8 +39,8 @@ int main( void )
 	{
 		print_status("--- TEST 2 ");
 		size_t				n = 6;
-		const Animal*		animal[n];
-		Animal*				catPtr;
+		const AAnimal*		animal[n];
+		AAnimal*				catPtr;
 		
 		for (size_t i = 0; i < n; i++)
 		{

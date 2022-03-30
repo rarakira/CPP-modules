@@ -1,5 +1,5 @@
-#ifndef ANIMAL_H
-# define ANIMAL_H
+#ifndef AANIMAL_H
+# define AANIMAL_H
 
 # include <iostream>
 # include "Brain.hpp"
@@ -12,20 +12,21 @@
 # define COLOUR_DELETE	"\033[0;38;5;203m"
 # define COLOUR_FIN		"\033[0m"
 
-class Animal
+class AAnimal
 {
 	protected:
 		std::string		_type;
 		Brain*			_brain;
 	public:
-		Animal( void );
-		Animal( std::string const & type );
-		Animal( Animal const & src );
-		Animal & operator=( Animal const & rhs );
-		virtual ~Animal( void );
+		AAnimal( void );
+		AAnimal( std::string const & type );
+		AAnimal( AAnimal const & src );
+		AAnimal & operator=( AAnimal const & rhs );
+		virtual ~AAnimal( void );
 
 		std::string const & getType( void ) const;
 		Brain * getBrain( void ) const;
+		Brain * copyBrain( Brain & src ) const;
 		virtual void makeSound( void ) const;
 };
 

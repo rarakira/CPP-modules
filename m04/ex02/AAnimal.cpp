@@ -1,49 +1,49 @@
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 
-Animal::Animal( void ) : _type("Animal"), _brain(NULL)
+AAnimal::AAnimal( void ) : _type("AAnimal")
 {
 	std::cout	<< COLOUR_NEW
-				<< "Animal DEFAULT constructor called"
+				<< "AAnimal DEFAULT constructor called"
 				<< COLOUR_FIN
 				<< std::endl;
 	return;
 }
 
-Animal::Animal( std::string const & type ) : _type(type), _brain(NULL)
+AAnimal::AAnimal( std::string const & type ) : _type(type)
 {
 	std::cout	<< COLOUR_NEW
-				<< "Animal constructor called"
+				<< "AAnimal constructor called"
 				<< COLOUR_FIN
 				<< std::endl;
 	return;
 }
 
-Animal::Animal( Animal const & src )
+AAnimal::AAnimal( AAnimal const & src )
 {
 	this->_type = src.getType();
 	std::cout	<< COLOUR_NEW
-				<< "Animal COPY constructor called"
+				<< "AAnimal COPY constructor called"
 				<< COLOUR_FIN
 				<< std::endl;
 	return;
 }
 
-Animal & Animal::operator=( Animal const & rhs )
+AAnimal & AAnimal::operator=( AAnimal const & rhs )
 {
 	this->_type = rhs.getType();
 	return *this;
 }
 
-Animal::~Animal( void )
+AAnimal::~AAnimal( void )
 {
 	std::cout	<< COLOUR_DELETE
-				<< "Animal destructor called"
+				<< "AAnimal destructor called"
 				<< COLOUR_FIN
 				<< std::endl;
 	return;
 }
 
-void Animal::makeSound( void ) const
+void AAnimal::makeSound( void ) const
 {
 	std::cout	<< COLOUR_YELL
 				<< "** NEUTRAL ROAR! **"
@@ -52,12 +52,12 @@ void Animal::makeSound( void ) const
 	return;
 }
 
-std::string const & Animal::getType( void ) const
+std::string const & AAnimal::getType( void ) const
 {
 	return this->_type;
 }
 
-Brain* Animal::getBrain( void ) const
+Brain* AAnimal::getBrain( void ) const
 {
 	return this->_brain;
 }

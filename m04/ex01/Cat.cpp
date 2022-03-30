@@ -13,7 +13,7 @@ Cat::Cat( void ) : Animal("Cat")
 Cat::Cat( Cat const & src )
 {
 	this->_type = src.getType();
-	this->_brain = new Brain(src.getBrain());
+	this->_brain = new Brain(*src.getBrain());
 	std::cout	<< COLOUR_NEW
 				<< "Cat COPY constructor called"
 				<< COLOUR_FIN
@@ -24,12 +24,13 @@ Cat::Cat( Cat const & src )
 Cat & Cat::operator=( Cat const & rhs )
 {
 	this->_type = rhs.getType();
-	this->_brain = rhs.getBrain();
+	this->_brain = new Brain(*rhs.getBrain());
 	return *this;
 }
 
 Cat::~Cat( void )
 {
+	delete this->_brain;
 	std::cout	<< COLOUR_DELETE
 				<< "Cat destructor called"
 				<< COLOUR_FIN

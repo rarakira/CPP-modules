@@ -25,7 +25,7 @@ class Animal
 		virtual ~Animal( void );
 
 		std::string const & getType( void ) const;
-		Brain & getBrain( void ) const;
+		Brain * getBrain( void ) const;
 		Brain * copyBrain( Brain & src ) const;
 		virtual void makeSound( void ) const;
 };

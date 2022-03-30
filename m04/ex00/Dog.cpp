@@ -28,7 +28,7 @@ Dog & Dog::operator=( Dog const & rhs )
 Dog::~Dog( void )
 {
 	std::cout	<< COLOUR_DELETE
-				<< "Dog deconstructor called"
+				<< "Dog destructor called"
 				<< COLOUR_FIN
 				<< std::endl;
 	return;

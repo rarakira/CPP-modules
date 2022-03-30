@@ -23,6 +23,8 @@ Brain::Brain( Brain const & src )
 
 Brain & Brain::operator=( Brain const & rhs )
 {
+	for (size_t i = 0; i < 100; i++)
+		this->setThought(i, rhs.getThought(i));
 	// this->_type = rhs.getType();
 	return *this;
 }

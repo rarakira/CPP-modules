@@ -13,7 +13,7 @@ Dog::Dog( void ) : Animal("Dog")
 Dog::Dog( Dog const & src )
 {
 	this->_type = src.getType();
-	this->_brain = src.getBrain();
+	this->_brain = new Brain(*src.getBrain());
 	std::cout	<< COLOUR_NEW
 				<< "Dog COPY constructor called"
 				<< COLOUR_FIN
@@ -24,13 +24,15 @@ Dog::Dog( Dog const & src )
 Dog & Dog::operator=( Dog const & rhs )
 {
 	this->_type = rhs.getType();
+	this->_brain = new Brain(*rhs.getBrain());
 	return *this;
 }
 
 Dog::~Dog( void )
 {
+	delete this->_brain;
 	std::cout	<< COLOUR_DELETE
-				<< "Dog deconstructor called"
+				<< "Dog destructor called"
 				<< COLOUR_FIN
 				<< std::endl;
 	return;

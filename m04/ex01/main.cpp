@@ -18,51 +18,39 @@ int main( void )
 {
 	{
 		print_status("--- TEST 1 ");
-		const Animal*		meta = new Animal();
-		const Animal*		j = new Dog();
-		const Animal*		i = new Cat();
+		const Cat*			cat1 = new Cat();
 
-		std::cout << i->getType() << ": ";
-		i->makeSound();
-		std::cout << j->getType() << ": ";
-		j->makeSound();
-		std::cout << meta->getType() << ": ";
-		meta->makeSound();
-		delete meta;
-		delete i;
-		delete j;
+		cat1->getBrain()->setThought(0, "I love Tuna!");
+		std::cout << "Cat 1 thinks: \"" << cat1->getBrain()->getThought(0) << "\"" << std::endl;
+		
+		const Animal*		cat2 = new Cat(*cat1);
+		std::cout << "Cat 2 thinks: \"" << cat2->getBrain()->getThought(0) << "\"" << std::endl;
+		cat2->getBrain()->setThought(0, "I love Shrimps!");
+		std::cout << "Cat 2 thinks: \"" << cat2->getBrain()->getThought(0) << "\"" << std::endl;
+		std::cout << "Cat 1 thinks: \"" << cat1->getBrain()->getThought(0) << "\"" << std::endl;
+
+		delete cat1;
+		delete cat2;
 	}
 	{
 		print_status("--- TEST 2 ");
-		const Animal*		animal = new Animal();
-		const Animal*		cat = new Cat();
-		const Cat*			catCat = new Cat();
+		size_t				n = 6;
+		const Animal*		animal[n];
 
-		std::cout << animal->getType() << ": ";
-		animal->makeSound();
-		std::cout << cat->getType() << ": ";
-		cat->makeSound();
-		std::cout << catCat->getType() << ": ";
-		catCat->makeSound();
-		delete animal;
-		delete cat;
-		delete catCat;
-	}
-	{
-		print_status("--- TEST 3 ");
-		const WrongAnimal*		animal = new WrongAnimal();
-		const WrongAnimal*		cat = new WrongCat();
-		const WrongCat*			catCat = new WrongCat();
+		for (size_t i = 0; i < n; i++)
+		{
+			if (i % 2)
+				animal[i] = new Cat();
+			else
+				animal[i] = new Dog();
+			std::cout << "Animal [" << i << "] CREATED : " << animal[i]->getType() << std::endl;
+		}
 
-		std::cout << animal->getType() << ": ";
-		animal->makeSound();
-		std::cout << cat->getType() << ": ";
-		cat->makeSound();
-		std::cout << catCat->getType() << ": ";
-		catCat->makeSound();
-		delete animal;
-		delete cat;
-		delete catCat;
+		for (size_t i = 0; i < n; i++)
+		{
+			std::cout << "Animal [" << i << "] : " << animal[i]->getType() << std::endl;
+			delete animal[i];
+		}
 	}
 	return 0;
 }

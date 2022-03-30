@@ -57,7 +57,7 @@ std::string const & Animal::getType( void ) const
 	return this->_type;
 }
 
-Brain& Animal::getBrain( void ) const
+Brain* Animal::getBrain( void ) const
 {
 	return this->_brain;
 }

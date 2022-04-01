@@ -2,7 +2,10 @@
 # define BUREAUCRAT_H
 
 # include <iostream>
+# include "Form.hpp"
 # include "Colours.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -20,6 +23,7 @@ public:
 	int getGrade( void ) const;
 	void incrementGrade( int points );
 	void decrementGrade( int points );
+	void signForm( Form & doc );
 
 	class GradeTooHighException : public std::exception
 	{

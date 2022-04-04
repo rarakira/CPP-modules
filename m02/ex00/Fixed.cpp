@@ -42,6 +42,17 @@ Fixed::~Fixed ( void )
 	return;
 }
 
+Fixed & Fixed::operator=( Fixed const & rhs )
+{
+	std::cout	<< COLOUR_MAIN
+				<< "Assignation operator called"
+				<< COLOUR_FIN
+				<< std::endl;
+
+	this->_num = rhs.getRawBits();
+	return *this;
+}
+
 int Fixed::getRawBits( void ) const
 {
 	std::cout	<< COLOUR_MAIN

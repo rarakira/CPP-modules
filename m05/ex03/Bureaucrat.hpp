@@ -22,8 +22,8 @@ public:
 	int getGrade(void) const;
 	void incrementGrade(int points);
 	void decrementGrade(int points);
-	void signForm(AForm & doc);
-	void executeForm(AForm const & doc);
+	void signForm(AForm * doc);
+	void executeForm(AForm const * doc);
 
 	class GradeTooHighException : public std::exception
 	{
@@ -31,6 +31,11 @@ public:
 		virtual const char* what() const throw();
 	};
 	class GradeTooLowException : public std::exception
+	{
+	public:
+		virtual const char* what() const throw();
+	};
+	class DocDoesntExist : public std::exception
 	{
 	public:
 		virtual const char* what() const throw();

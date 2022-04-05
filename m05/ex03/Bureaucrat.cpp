@@ -1,3 +1,4 @@
+#include <sstream>
 #include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat() : _name("Noname"), _grade(75) {
@@ -8,8 +9,7 @@ Bureaucrat::Bureaucrat() : _name("Noname"), _grade(75) {
 	return;
 }
 
-Bureaucrat::Bureaucrat(std::string const & name, int number)
-		: _name(name), _grade(number) {
+Bureaucrat::Bureaucrat(std::string const & name, int number) : _name(name), _grade(number) {
 	if (number < 1)
 		throw Bureaucrat::GradeTooHighException();
 	if (number > 150)
@@ -77,6 +77,50 @@ void Bureaucrat::decrementGrade(int points) {
 				<< std::endl;
 }
 
+void Bureaucrat::signForm(AForm * doc) {
+	if (doc == NULL)
+		throw Bureaucrat::DocDoesntExist();
+	try {
+		if (doc->beSigned(*this)) {
+			std::cout	<< COLOUR_GREEN
+						<< "Bureaucrat " << this->_name << " signed the form " << doc->getName()
+						<< COLOUR_FIN
+						<< std::endl;
+		}
+		else
+		{
+			std::cout	<< COLOUR_RED
+					<< "Bureaucrat " << this->_name << " could not sign the form " << doc->getName()
+					<< COLOUR_FIN
+					<< std::endl;
+		}
+	}
+	catch(const std::exception& e) {
+		std::cerr << "(signForm) CAUGHT EXCEPTION: " << e.what() << '\n';
+		throw ;
+	}
+}
+
+void Bureaucrat::executeForm(AForm const * doc) {
+	try {
+		if (doc->execute(*this)) {
+			std::cout	<< COLOUR_GREEN
+						<< "Bureaucrat " << this->_name << " executed the " << doc->getName()
+						<< COLOUR_FIN
+						<< std::endl;
+		}
+		else {
+			std::cout	<< COLOUR_RED
+						<< "Bureaucrat " << this->_name << " couldn't execute the " << doc->getName()
+						<< COLOUR_FIN
+						<< std::endl;
+		}
+	}
+	catch(const std::exception& e) {
+		std::cerr << COLOUR_RED << "(signForm) CAUGHT EXCEPTION: " << e.what() << COLOUR_FIN << '\n';
+		throw ;
+	}
+}
 
 std::ostream & operator<<(std::ostream & o, Bureaucrat const & rhs) {
 	o << rhs.getName() << ", bureaucrat grade " << rhs.getGrade();
@@ -84,9 +128,13 @@ std::ostream & operator<<(std::ostream & o, Bureaucrat const & rhs) {
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw() {
-	return ("The grade is too high!");
+	return (">> The grade is too high!");
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw() {
-	return ("The grade is too low!");
+	return (">> The grade is too low!");
+}
+
+const char* Bureaucrat::DocDoesntExist::what() const throw() {
+	return (">> The Document does not exist!");
 }

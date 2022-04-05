@@ -1,8 +1,7 @@
 #include <sstream>
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat( void ) : _name("Noname"), _grade(75)
-{
+Bureaucrat::Bureaucrat() : _name("Noname"), _grade(75) {
 	std::cout	<< COLOUR_NEW
 				<< "Bureaucrat DEFAULT constructor called"
 				<< COLOUR_FIN
@@ -10,8 +9,8 @@ Bureaucrat::Bureaucrat( void ) : _name("Noname"), _grade(75)
 	return;
 }
 
-Bureaucrat::Bureaucrat( std::string const & name, int number ) : _name(name), _grade(number)
-{
+Bureaucrat::Bureaucrat(std::string const & name, int number)
+		: _name(name), _grade(number) {
 	if (number < 1)
 		throw Bureaucrat::GradeTooHighException();
 	if (number > 150)
@@ -23,8 +22,7 @@ Bureaucrat::Bureaucrat( std::string const & name, int number ) : _name(name), _g
 	return;
 }
 
-Bureaucrat::Bureaucrat( Bureaucrat const & src )
-{
+Bureaucrat::Bureaucrat(Bureaucrat const & src) {
 	const_cast<std::string &>(_name) = src.getName();
 	this->_grade = src.getGrade();
 	std::cout	<< COLOUR_NEW
@@ -34,15 +32,13 @@ Bureaucrat::Bureaucrat( Bureaucrat const & src )
 	return;
 }
 
-Bureaucrat & Bureaucrat::operator=( Bureaucrat const & rhs )
-{
+Bureaucrat & Bureaucrat::operator=(Bureaucrat const & rhs) {
 	const_cast<std::string &>(_name) = rhs.getName();
 	this->_grade = rhs.getGrade();
 	return *this;
 }
 
-Bureaucrat::~Bureaucrat( void )
-{
+Bureaucrat::~Bureaucrat() {
 	std::cout	<< COLOUR_DELETE
 				<< "Bureaucrat destructor called"
 				<< COLOUR_FIN
@@ -50,18 +46,15 @@ Bureaucrat::~Bureaucrat( void )
 	return;
 }
 
-const std::string & Bureaucrat::getName( void ) const
-{
+const std::string & Bureaucrat::getName(void) const {
 	return this->_name;
 }
 
-int Bureaucrat::getGrade( void ) const
-{
+int Bureaucrat::getGrade(void) const {
 	return this->_grade;
 }
 
-void Bureaucrat::incrementGrade( int points )
-{
+void Bureaucrat::incrementGrade(int points) {
 	if ((this->_grade - points) < 1)
 		throw Bureaucrat::GradeTooHighException();
 	if ((this->_grade - points) > 150)
@@ -73,8 +66,7 @@ void Bureaucrat::incrementGrade( int points )
 				<< std::endl;
 }
 
-void Bureaucrat::decrementGrade( int points )
-{
+void Bureaucrat::decrementGrade(int points) {
 	if ((this->_grade + points) < 1)
 		throw Bureaucrat::GradeTooHighException();
 	if ((this->_grade + points) > 150)
@@ -86,8 +78,7 @@ void Bureaucrat::decrementGrade( int points )
 				<< std::endl;
 }
 
-void Bureaucrat::signForm( Form & doc )
-{
+void Bureaucrat::signForm(Form & doc) {
 	try
 	{
 		if (doc.beSigned(*this))
@@ -110,18 +101,15 @@ void Bureaucrat::signForm( Form & doc )
 	}
 }
 
-std::ostream & operator<<( std::ostream & o, Bureaucrat const & rhs )
-{
+std::ostream & operator<<(std::ostream & o, Bureaucrat const & rhs) {
 	o << rhs.getName() << ", bureaucrat grade " << rhs.getGrade();
 	return o;
 }
 
-const char* Bureaucrat::GradeTooHighException::what() const throw()
-{
+const char* Bureaucrat::GradeTooHighException::what() const throw() {
 	return (">> The grade is too high!");
 }
 
-const char* Bureaucrat::GradeTooLowException::what() const throw()
-{
+const char* Bureaucrat::GradeTooLowException::what() const throw() {
 	return (">> The grade is too low!");
 }

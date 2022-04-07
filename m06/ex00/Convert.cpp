@@ -4,23 +4,14 @@
 #include <istream>
 #include "Convert.hpp"
 
-// INT 0 -42
-// FLOAT 42.21f
-// DOUBLE 42.21
-// ASCII
-// nan | nanf
-// -inff +inff | -inf +inf
-
 Convert::Convert(): _number(0), _type(0), _str("Error"), _prec(0) {
 	return;
 }
 
-Convert::Convert(std::string const & str): _number(0), _type(0), _str(str), _prec(0)  {
-	// std::stringstream	ss(str);
-
-	if (isChar(str)) {const_cast<short &>(_type) = T_CHAR; }
+Convert::Convert(std::string const & str): _number(0), _type(0), _str(str), _prec(1)  {
+	if (isInt(str)) {const_cast<short &>(_type) = T_INT; }
 	else if (isSpecial(str)) {const_cast<short &>(_type) = T_SPECIAL; }
-	else if (isInt(str)) {const_cast<short &>(_type) = T_INT; }
+	else if (isChar(str)) {const_cast<short &>(_type) = T_CHAR; }
 	else if (isFloat(str)) {const_cast<short &>(_type) = T_FLOAT; }
 	else if (isDouble(str)) {const_cast<short &>(_type) = T_DOUBLE; }
 
@@ -34,6 +25,9 @@ Convert::Convert(std::string const & str): _number(0), _type(0), _str(str), _pre
 			this->_prec = str.length() - ++pos;
 			if (_type == T_FLOAT) {
 				this->_prec -= 1;
+			}
+			if (this->_prec == 0) {
+				this->_prec = 1;
 			}
 		}
 	}
@@ -81,28 +75,54 @@ bool Convert::isInt(std::string const & str) const {
 	return (ss.eof() == 1 && ss.fail() == 0);
 }
 
-bool Convert::isFloat(std::string const & str) const {
-	float num = std::stof(str);
-	std::stringstream 	ss;
-	ss << num;
-	if (str.at(str.length() - 1) == 'f') {
-		if (str.length() == (ss.str().length() + 1)) {
-			return true;
+static bool isFloatNumber(const std::string& str){
+	std::string::const_iterator i = str.begin();
+	bool decimalPoint = false;
+	if (str.size() > 0 && (str[0] == '-' || str[0] == '+')) {
+		i++;
+	}
+	while (i != str.end()) {
+		if (*i == '.') {
+			if (!decimalPoint) {
+				decimalPoint = true; }
+			else {
+				break;
+			}
 		}
+		else if (!std::isdigit(*i) && ((*i != 'f') || (i + 1) != str.end())) {
+			break;
+		}
+		i++;
+	}
+	return (i == str.end());
+}
+
+bool Convert::isFloat(std::string const & str) const {
+	try {
+		float num = std::stof(str);
+		(void) num;
+	}
+	catch(const std::exception& e) {
+		return false;
+	}
+	if (isFloatNumber(str) && str.at(str.length() - 1) == 'f') {
+		return true;
 	}
 	return false;
-	// std::stringstream 	ss(str);
-	// double 				num;
-	// std::string			ch;
-
-	// std::cout << "Start:: " << str << std::endl;
-	// if (!(ss >> num)) {
-	// 	std::cout << "[ Unsuccessfull ]" << std::endl;
-	// }
-	// ss >> ch;
-	// std::cout << "CONVERTER:: " << num << " " << ch << std::endl;
-	// return (ch == "f" && ss.eof() == 1 && ss.fail() == 0);
 }
+
+// bool Convert::isFloat(std::string const & str) const {
+// 	std::stringstream 	ss(str);
+// 	double 				num;
+// 	std::string			ch;
+
+// 	if (!(ss >> num)) {
+// 		std::cout << "[ Unsuccessfull ] " << str << std::endl;
+// 	}
+// 	ss >> ch;
+// 	std::cout << "CONVERTER:: " << num << " \'" << ch << "\'" << std::endl;
+// 	return (ch == "f" && ss.eof() == 1 && ss.fail() == 0);
+// }
 
 bool Convert::isDouble(std::string const & str) const {
 	std::stringstream 	ss(str);

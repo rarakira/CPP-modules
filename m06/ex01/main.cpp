@@ -25,6 +25,8 @@ int main(void) {
 	raw = serialize(cat);
 	std::cout	<< "raw: " << raw << "["
 				<< std::hex << raw << std::dec << "]" << std::endl;
+	// std::cout	<< raw->name << " is a " << raw->type
+	// 			<< " he is " << raw->age << " years old." << std::endl;
 	std::cout	<< reinterpret_cast<Data *>(raw)->name << " is a " << reinterpret_cast<Data *>(raw)->type
 				<< " he is " << reinterpret_cast<Data *>(raw)->age << " years old." << std::endl;
 
@@ -35,6 +37,9 @@ int main(void) {
 				<< " he is " << dog->age << " years old." << std::endl;
 
 	print_status("--- Finished ");
+	std::cout	<< "uintptr_t size = " << sizeof(raw) << std::endl;
+	std::cout	<< "Data* size = " << sizeof(cat) << std::endl;
+	std::cout	<< "Cat size = " << sizeof(*cat) << std::endl;
 
 	delete dog;
 	return 0;

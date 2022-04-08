@@ -64,21 +64,20 @@ bool Form::isSigned(void) const {
 }
 
 bool Form::beSigned(Bureaucrat const & clerk) {
-	if (this->isSigned())
+	if (this->isSigned()) {
 		std::cout	<< COLOUR_BBLUE
 				<< "FORM: Bureaucrat " << clerk.getName() << " could not sign the form " << this->getName() << " because it's already signed"
 				<< COLOUR_FIN
 				<< std::endl;
-	else if (this->_gradeToSign < clerk.getGrade())
-	{
+	}
+	else if (this->_gradeToSign < clerk.getGrade()) {
 		std::cout	<< COLOUR_BBLUE
 				<< "FORM: Bureaucrat " << clerk.getName() << " could not sign the form " << this->getName() << " because his grade is too low"
 				<< COLOUR_FIN
 				<< std::endl;
 		throw Form::GradeTooLowException();
 	}
-	else
-	{
+	else {
 		this->_signed = true;
 		std::cout	<< COLOUR_BBLUE
 				<< "FORM: Bureaucrat " << clerk.getName() << " signed the form " << this->getName()

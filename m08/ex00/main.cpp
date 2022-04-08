@@ -20,7 +20,7 @@ int main(void) {
 			std::cout << *ptr << " is found" << std::endl;
 		}
 		catch(const std::exception& e) {
-			std::cerr << ">> Exception caught: " << e.what() << '\n';
+			std::cerr << COLOUR_RED  << ">> Exception caught: " << e.what() << COLOUR_FIN << '\n';
 		}
 		print_status("--- Fill the array ");
 		for (size_t i = 0; i < 22; i++) {
@@ -35,7 +35,7 @@ int main(void) {
 			std::cout << *ptr << " is found" << std::endl;
 		}
 		catch(const std::exception& e) {
-			std::cerr << ">> Exception caught: " << e.what() << '\n';
+			std::cerr << COLOUR_RED << ">> Exception caught: " << e.what() << COLOUR_FIN << '\n';
 		}
 
 		print_status("--- Find -42 ");
@@ -44,7 +44,7 @@ int main(void) {
 			std::cout << *ptr << " is found" << std::endl;
 		}
 		catch(const std::exception& e) {
-			std::cerr << ">> Exception caught: " << e.what() << '\n';
+			std::cerr << COLOUR_RED << ">> Exception caught: " << e.what() << COLOUR_FIN << '\n';
 		}
 	}
 	return 0;

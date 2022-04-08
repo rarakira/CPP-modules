@@ -12,28 +12,13 @@ void print_status(std::string const msg) {
 
 int main(void) {
 	{
-		print_status("--- TEST 0 ");
-		try
-		{
-			Bureaucrat	bill("Bill", 0);
-			Bureaucrat	paul("Paul", 50);
-			Form		argeement1("Agreement 1", 100, 110);
-			Form		argeement2("Agreement 2", 50, 100);
-			Form		argeement3("Agreement 3", 1, 50);
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << "(MAIN) CAUGHT EXCEPTION: " << e.what() << '\n';
-		}
-	}
-	{
-		print_status("--- TEST 1 ");
+		print_status("--- TEST 1: Form can't be created ");
 		try
 		{
 			Bureaucrat	bill("Bill", 100);
 			Bureaucrat	paul("Paul", 50);
 			Form		argeement1("Agreement 1", 100, 110);
-			Form		argeement2("Agreement 2", 50, 100);
+			Form		argeement2("Agreement 2", 0, 0);
 
 			std::cout << bill << std::endl;
 			std::cout << paul << std::endl;
@@ -53,7 +38,7 @@ int main(void) {
 		}
 	}
 	{
-		print_status("--- TEST 2 ");
+		print_status("--- TEST 2: Form can't be signed ");
 		try
 		{
 			Bureaucrat	bill("Bill", 100);

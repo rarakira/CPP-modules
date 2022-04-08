@@ -58,7 +58,7 @@ int main(int, char**)
 		{
 			numbers[i] = rand();
 		}
-		delete [] mirror;//
+		delete [] mirror;
 	}
 	{
 		print_status("--- My tests ");
@@ -87,7 +87,7 @@ int main(int, char**)
 		print_status("--- Update values for cities2 ");
 		for (unsigned int i = 0; i < cities2.size(); i++) {
 			cities2[i] = citiesSpain[i];
-			std::cout << "cities1[" << i << "] = " << cities2[i] << std::endl;
+			std::cout << "cities2[" << i << "] = " << cities2[i] << std::endl;
 		}
 
 		print_status("--- Check cities1 ");
@@ -100,15 +100,16 @@ int main(int, char**)
 			std::cout << "nums[5] is " << nums[5] << std::endl;
 		}
 		catch(const std::exception& e) {
-			std::cerr << e.what() << '\n';
+			std::cerr << COLOUR_RED << ">> Exception caught: " << e.what() << COLOUR_FIN << '\n';
 		}
 		try {
 			std::cout << "nums[-1] is " << nums[-1] << std::endl;
 		}
 		catch(const std::exception& e)
 		{
-			std::cerr << e.what() << '\n';
+			std::cerr << COLOUR_RED << ">> Exception caught: " << e.what() << COLOUR_FIN << '\n';
 		}
+		print_status("--- Tests finished ");
 	}
 	return 0;
 }

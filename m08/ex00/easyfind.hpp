@@ -12,7 +12,7 @@ typename T::const_iterator easyfind(T &arr, int n)
 		throw std::overflow_error("Array is empty");
 	}
 	else if (iter == arr.end()) {
-		throw std::overflow_error("Vallue not found");
+		throw std::overflow_error("Value not found");
 	}
 	else {
 		return iter;

@@ -154,6 +154,9 @@ void Convert::toChar(void) {
 	else if (this->_type == T_SPECIAL) {
 		std::cout << "Impossible";
 	}
+	else if (this->_number < 0.0 || this->_number > 255.0) {
+		std::cout << "Outside boundaries";
+	}
 	else if (std::isprint(static_cast<char>(this->_number))) {
 		std::cout << "\'"
 		<< static_cast<char>(this->_number) << "\'";

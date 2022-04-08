@@ -13,13 +13,13 @@ int main(void) {
 		print_status("--- String ");
 		std::string	cities[] = {"London", "Liverpool", "Manchester", "Sheffield", "Bristol"};
 		unsigned int n = 5;
-		::iter(cities, n, &print);
+		iter(cities, n, &print);
 	}
 	{
 		print_status("--- Float ");
 		float	nums[] = {21, 42.21, +0.0, -0.0, -10000};
 		unsigned int n = 5;
-		::iter(nums, n, &print);
+		iter(nums, n, &print);
 	}
 	return 0;
 }

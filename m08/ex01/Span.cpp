@@ -33,7 +33,6 @@ Span & Span::operator=(Span const & rhs) {
 }
 
 Span::~Span() {
-	// this->_arr.clear();
 	std::cout	<< COLOUR_DELETE
 				<< "Span destructor called"
 				<< COLOUR_FIN

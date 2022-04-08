@@ -11,7 +11,7 @@ void print_status(std::string const msg) {
 
 int main(void) {
 	{
-		print_status("--- TEST 1 ");
+		print_status("--- TEST 1: grade 200 ");
 		try {
 			Bureaucrat	bill("Bill", 200);
 		}
@@ -20,7 +20,7 @@ int main(void) {
 		}
 	}
 	{
-		print_status("--- TEST 2 ");
+		print_status("--- TEST 2: increment by 140 ");
 		Bureaucrat	bill("Bill", 100);
 		Bureaucrat	paul("Paul", 100);
 
@@ -36,7 +36,7 @@ int main(void) {
 		}
 	}
 	{
-		print_status("--- TEST 2 ");
+		print_status("--- TEST 2: decrement -30 ");
 		Bureaucrat	bill("Bill", 10);
 		Bureaucrat  paul = bill;
 

@@ -20,7 +20,7 @@ int main(void) {
 				A.addNumber(std::rand());
 			}
 			catch(const std::exception& e) {
-				std::cerr << ">> Exception caught: " << e.what() << '\n';
+				std::cerr << COLOUR_RED << ">> Exception caught: " << e.what() << COLOUR_FIN << '\n';
 			}
 		}
 
@@ -30,7 +30,7 @@ int main(void) {
 			std::cout << span << std::endl;
 		}
 		catch(const std::exception& e) {
-			std::cerr << ">> Exception caught: " << e.what() << '\n';
+			std::cerr << COLOUR_RED << ">> Exception caught: " << e.what() << COLOUR_FIN << '\n';
 		}
 
 		print_status("--- Longest span ");
@@ -39,7 +39,7 @@ int main(void) {
 			std::cout << span << std::endl;
 		}
 		catch(const std::exception& e) {
-			std::cerr << ">> Exception caught: " << e.what() << '\n';
+			std::cerr << COLOUR_RED << ">> Exception caught: " << e.what() << COLOUR_FIN << '\n';
 		}
 	}
 	{
@@ -52,7 +52,7 @@ int main(void) {
 				A.addNumber(std::rand());
 			}
 			catch(const std::exception& e) {
-				std::cerr << ">> Exception caught: " << e.what() << '\n';
+				std::cerr << COLOUR_RED << ">> Exception caught: " << e.what() << COLOUR_FIN << '\n';
 			}
 		}
 		print_status("--- Shortest span ");
@@ -61,7 +61,7 @@ int main(void) {
 			std::cout << span << std::endl;
 		}
 		catch(const std::exception& e) {
-			std::cerr << ">> Exception caught: " << e.what() << '\n';
+			std::cerr << COLOUR_RED << ">> Exception caught: " << e.what() << COLOUR_FIN << '\n';
 		}
 
 		print_status("--- Longest span ");
@@ -70,7 +70,7 @@ int main(void) {
 			std::cout << span << std::endl;
 		}
 		catch(const std::exception& e) {
-			std::cerr << ">> Exception caught: " << e.what() << '\n';
+			std::cerr << COLOUR_RED << ">> Exception caught: " << e.what() << COLOUR_FIN << '\n';
 		}
 	}
 	{
@@ -96,7 +96,7 @@ int main(void) {
 			sp.addRange(vals.begin(), vals.end());
 		}
 		catch(const std::exception& e) {
-			std::cerr << ">> Exception caught: " << e.what() << '\n';
+			std::cerr << COLOUR_RED << ">> Exception caught: " << e.what() << COLOUR_FIN << '\n';
 		}
 		std::cout << sp << std::endl;
 
@@ -108,7 +108,7 @@ int main(void) {
 			sp.addRange(vals.begin(), vals.end());
 		}
 		catch(const std::exception& e) {
-			std::cerr << ">> Exception caught: " << e.what() << '\n';
+			std::cerr << COLOUR_RED << ">> Exception caught: " << e.what() << COLOUR_FIN << '\n';
 		}
 		std::cout << sp << std::endl;
 
@@ -120,7 +120,7 @@ int main(void) {
 			sp.addRange(vals.begin(), vals.end());
 		}
 		catch(const std::exception& e) {
-			std::cerr << ">> Exception caught: " << e.what() << '\n';
+			std::cerr << COLOUR_RED << ">> Exception caught: " << e.what() << COLOUR_FIN << '\n';
 		}
 		std::cout << sp << std::endl;
 	}

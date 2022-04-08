@@ -33,14 +33,14 @@ int main(void) {
 		int		b = 21;
 
 		std::cout	<< "a = " << a << ", b = " << b << std::endl;
-		std::cout	<< "min( a, b ) = " << ::min(a, b) << std::endl;
-		std::cout	<< "max( a, b ) = " << ::max(a, b) << std::endl;
+		std::cout	<< "min( a, b ) = " << min(a, b) << std::endl;
+		std::cout	<< "max( a, b ) = " << max(a, b) << std::endl;
 
 		::swap<int>(a, b);
 		std::cout	<< "After swap: " << std::endl;
 		std::cout	<< "a = " << a << ", b = " << b << std::endl;
 
-		std::cout	<< "max( a, b ) = " << ::max(a, b) << std::endl;
+		std::cout	<< "max( a, b ) = " << max(a, b) << std::endl;
 	}
 	{
 		print_status("--- Floats ");
@@ -48,14 +48,14 @@ int main(void) {
 		float		b = 42.21;
 
 		std::cout	<< "a = " << a << ", b = " << b << std::endl;
-		std::cout	<< "Min: " << ::min(a, b) << std::endl;
-		std::cout	<< "Max: " << ::max(a, b) << std::endl;
+		std::cout	<< "Min: " << min(a, b) << std::endl;
+		std::cout	<< "Max: " << max(a, b) << std::endl;
 
 		::swap(a, b);
 		std::cout	<< "After swap: " << std::endl;
 		std::cout	<< "a = " << a << ", b = " << b << std::endl;
 
-		std::cout	<< "Max: " << ::max(a, b) << std::endl;
+		std::cout	<< "Max: " << max(a, b) << std::endl;
 	}
 	return 0;
 }
